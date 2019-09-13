@@ -22,37 +22,14 @@ if ( ! defined( 'LEDCAL_PLUGIN_URL' ) ) {
 	define( 'LEDCAL_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 }
 if ( ! defined( 'LEDCAL_JS_PLUGIN_URL' ) ) {
-	define( 'LEDCAL_JS_PLUGIN_URL', LEDCAL_PLUGIN_URL.'includes/js/');
+	define( 'LEDCAL_JS_PLUGIN_URL', LEDCAL_PLUGIN_URL.'asset/js/');
 }
 if ( ! defined( 'LEDCAL_STYLE_PLUGIN_URL' ) ) {
-	define( 'LEDCAL_STYLE_PLUGIN_URL', LEDCAL_PLUGIN_URL.'includes/css/');
+	define( 'LEDCAL_STYLE_PLUGIN_URL', LEDCAL_PLUGIN_URL.'asset/css/');
 }
-
-
-/*
-
-class Led_calculator extends WP_Widget{
-	
-	public function __construct(){
-
-		$widget_opts = array(
-			'classname' => 'Led_calculator',
-			'description' => 'know proyectar led suggestions',
-		);
-		parent::__construct('Led_calculator', 'led_calculator', $widget_opts);
-	}
-
-	public function widget($args, $instance){
-
-		echo "Hola mundo";
-
-	}
-
-	public function form($instance){}
-
-	public function update($new_instance, $old_instance){}
-
-}*/
+if ( ! defined( 'LEDCAL_IMG_PLUGIN_URL' ) ) {
+	define( 'LEDCAL_IMG_PLUGIN_URL', LEDCAL_PLUGIN_URL.'asset/img/');
+}
 
 
 add_shortcode( 'led_calculator', 'led_calculator_shortcode');
@@ -78,19 +55,15 @@ function led_calculator_shortcode($atts){
 			</div>
 
 			<div class="more-button">
-				<div class="plus-button"><a>+</a></div>
+				<a onclick="addElement()"><div class="plus-button">+</div></a>
 				<span>Agregar</span>
 			</div>
 			
 		</div>
-
 	</div>
-
-
 	<?php
+	include_once(LEDCAL_PLUGIN_DIR.'includes/modal_selector.php');
 
 }
-
-//add_shortcode( 'led_calculator', function(){return "esto es una prueba";});
 
 ?>
