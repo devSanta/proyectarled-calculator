@@ -31,16 +31,101 @@ if ( ! defined( 'LEDCAL_IMG_PLUGIN_URL' ) ) {
 	define( 'LEDCAL_IMG_PLUGIN_URL', LEDCAL_PLUGIN_URL.'asset/img/');
 }
 
+function get_tree_categories(){
+	$led_category_tree = [
+		'incandecentes' =>[
+			'title' => 'incandecentes',
+			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+			'childs'=> [
+				'plafon' => [
+					'title'	=> 'de plafón',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+					'variation' => [60,100,120]
+				],
+				'aplique'=> [
+					'title'	=> 'de aplique',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
+					'variation' => [60,100,120]
+				],
+				'buey' 	=>  [
+					'title'	=> 'ojo de buey',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+					'variation' => [35,50]
+				],
+
+			],
+		],
+		'fluorecentes' =>[
+			'title' => 'fluorecentes',
+			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
+			'childs'=> [
+				'plafon' => [
+					'title'	=> 'de plafón',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+					'variation' => [26,35]
+				],
+				'aplique'=> [
+					'title'	=> 'de aplique',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
+					'variation' => [60,100,120]
+				],
+				'balas' 	=>  [
+					'title'	=> 'balas',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+					'variation' => [26,35]
+				],
+				'portalamparas'	 =>  [
+					'title'	=> 'portalamparas',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+					'variation' => ['2x32','4x17']
+				],
+
+			],
+		],
+		'reflectores' =>[
+			'title' => 'reflectores',
+			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+			'childs'=> [
+				'plafon' => [
+					'title'	=> 'de plafón',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+					'variation' => [60,100,120]
+				],
+				'aplique'=> [
+					'title'	=> 'de aplique',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
+					'variation' => [60,100,120]
+				],
+				'buey' 	=>  [
+					'title'	=> 'ojo de buey',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+					'variation' => [35,50]
+				],
+
+			],
+		],
+
+	];
+	return $led_category_tree;
+}
+
+
+
 
 add_shortcode( 'led_calculator', 'led_calculator_shortcode');
 
 function led_calculator_shortcode($atts){
 
+	$led_category_tree=get_tree_categories();
+
+	echo '<script type="text/javascript">
+	var IMG_URL="'.LEDCAL_IMG_PLUGIN_URL.'"
+	var led_category_tree='.json_encode($led_category_tree).'
+	</script>';
+
 	wp_enqueue_script('led_calculator_script_main',LEDCAL_JS_PLUGIN_URL . 'script.js',array(),'1.0.0');
 
 	wp_enqueue_style( 'led_calculator_style_main', LEDCAL_STYLE_PLUGIN_URL.'style.css', array(), $ver = '1.0.0', $media = 'all' );
-	
-
 	?>
 
 	<div id="Calculator">
