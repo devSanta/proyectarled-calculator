@@ -76,8 +76,8 @@ function drawProduct(product){
 				<img src="${item.img}" alt="${item.title}" class="product-img" />
 			</div>
 			<div class="product-content">
-				<strong class="product-name">
-					${product.quantity} bombillo(s) ${item.title} de ${product.power} w
+				<strong class="product-name" id="led-product-${product.id}-title">
+					${product.quantity} bombillo(s) ${item.title} de ${product.power} 
 				</strong>
 				<div class="product-button">
 					<a class="led-button button-update" onclick="ledUpdate(${product.id})"><div class="bg-CAMBIAR_OPCIONES"></div><span>modificar</span></a>
@@ -120,7 +120,7 @@ function ledRemove(itemId){
 	productSelected.pop(item);
 }
 function openModal(modalId){
-	let modal = document.getElementById('led-modal');
+	var modal = document.getElementById('led-modal');
 	modal.style.display='block';
 	var modals = document.getElementsByClassName('led-modal-content');
 	for(var i=0; i<modals.length;i++){
@@ -128,6 +128,13 @@ function openModal(modalId){
 	}
 	modals[modalId].style.display='block';
 }
-function updateProduct(productId){
-	
+function updateProduct(){
+	const productId = document.getElementById('update-product-id').value;
+	const updateValues = document.getElementsByClassName('update-value');
+	var productTitle = document.getElementById('led-product-'+productId+'-title');
+	var product = productSelected.find(items=>items.id==productId);
+	product.quantity = updateValues.quantity.value;
+	product.power = updateValues.power.value;
+	productTitle.innerHTML = `${product.quantity} bombillo(s) ${product.type} de ${product.power} w`;
+	closeModal();
 }

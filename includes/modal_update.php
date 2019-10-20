@@ -17,9 +17,9 @@
 	
 	<div id="update-product-options">
 		<label for="update-product-quantity">Cantidad</label>
-		<input id="update-product-quantity" type="number" name="quantity" min="0" value="1">
+		<input id="update-product-quantity" class="update-value" type="number" name="quantity" min="0" value="1">
 		<label for="update-product-power">Vatios</label>
-		<select name="power" id="update-product-power"></select>
+		<select name="power" id="update-product-power" class="update-value"></select>
 	</div>
 
 	<div id="update-product-button">
