@@ -1,3 +1,4 @@
+<?php ?>
 <div id="modal-product" class="led-modal-content" style="display:none;">
 	
 	<p class="led-modal-text">

@@ -1,0 +1,15 @@
+.bg-AGREGAR_MAS {
+  width: 25px; height: 25px;
+  background: url('../img/BOTONES/AGREGAR-MAS.png');
+  background-size: contain;
+}
+.bg-CALCULAR {
+    width: 25px; height: 25px;
+    background: url('../img/BOTONES/CALCULAR.png');
+    background-size: contain;
+}
+.bg-CAMBIAR_OPCIONES {
+    width: 25px; height: 25px;
+    background: url('../img/BOTONES/CAMBIAR-OPCIONES.png');
+    background-size: contain;
+}

@@ -35,21 +35,21 @@ function get_tree_categories(){
 	$led_category_tree = [
 		'incandecentes' =>[
 			'title' => 'incandecentes',
-			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'incandescentes.png',
 			'childs'=> [
 				'plafon' => [
 					'title'	=> 'de plafón',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_plafon.png',
 					'variation' => [60,100,120]
 				],
 				'aplique'=> [
 					'title'	=> 'de aplique',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_aplique.png',
 					'variation' => [60,100,120]
 				],
 				'buey' 	=>  [
 					'title'	=> 'ojo de buey',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/ojo_de_buey.png',
 					'variation' => [35,50]
 				],
 
@@ -57,26 +57,26 @@ function get_tree_categories(){
 		],
 		'fluorecentes' =>[
 			'title' => 'fluorecentes',
-			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
+			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'fluorescentes.png',
 			'childs'=> [
 				'plafon' => [
 					'title'	=> 'de plafón',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_plafon.png',
 					'variation' => [26,35]
 				],
 				'aplique'=> [
 					'title'	=> 'de aplique',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_apliques.png',
 					'variation' => [60,100,120]
 				],
 				'balas' 	=>  [
 					'title'	=> 'balas',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_bala.png',
 					'variation' => [26,35]
 				],
 				'portalamparas'	 =>  [
 					'title'	=> 'portalamparas',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/portatubos.png',
 					'variation' => ['2x32','4x17']
 				],
 
@@ -84,24 +84,13 @@ function get_tree_categories(){
 		],
 		'reflectores' =>[
 			'title' => 'reflectores',
-			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
+			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.png',
 			'childs'=> [
 				'plafon' => [
-					'title'	=> 'de plafón',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandecente.jpg',
+					'title'	=> 'reflector',
+					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.png',
 					'variation' => [60,100,120]
 				],
-				'aplique'=> [
-					'title'	=> 'de aplique',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecentes.jpg',
-					'variation' => [60,100,120]
-				],
-				'buey' 	=>  [
-					'title'	=> 'ojo de buey',
-					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.jpg',
-					'variation' => [35,50]
-				],
-
 			],
 		],
 
@@ -119,13 +108,16 @@ function led_calculator_shortcode($atts){
 	$led_category_tree=get_tree_categories();
 
 	echo '<script type="text/javascript">
-	var IMG_URL="'.LEDCAL_IMG_PLUGIN_URL.'"
-	var led_category_tree='.json_encode($led_category_tree).'
+	const IMG_URL="'.LEDCAL_IMG_PLUGIN_URL.'";
+	const led_category_tree='.json_encode($led_category_tree).';
+	var productSelected = [];
+	var totalProducts = 0;
 	</script>';
 
 	wp_enqueue_script('led_calculator_script_main',LEDCAL_JS_PLUGIN_URL . 'script.js',array(),'1.0.0');
 
 	wp_enqueue_style( 'led_calculator_style_main', LEDCAL_STYLE_PLUGIN_URL.'style.css', array(), $ver = '1.0.0', $media = 'all' );
+	wp_enqueue_style( 'led_calculator_style_bottom', LEDCAL_STYLE_PLUGIN_URL.'bottom.css', array(), $ver = '1.0.0', $media = 'all' );
 	?>
 
 	<div id="Calculator">
@@ -140,8 +132,7 @@ function led_calculator_shortcode($atts){
 			</div>
 
 			<div class="more-button">
-				<a onclick="addElement()"><div class="plus-button">+</div></a>
-				<span>Agregar</span>
+				<a class="led-button" onclick="addElement()"><div class="bg-AGREGAR_MAS"></div><span>Agregar</span></a>
 			</div>
 			
 		</div>

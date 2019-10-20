@@ -1,15 +1,10 @@
 function addElement() {
-	let modal = document.getElementById('led-modal');
-	let modal_cat = document.getElementById('modal-cat');
-	let modal_product = document.getElementById('modal-product');
-	modal.style.display='block';
-	modal_cat.style.display='block';
-	modal_product.style.display='none';
+	openModal('modal-cat');
 }
 function closeModal(){
 	let modal = document.getElementById('led-modal');
 	modal.style.display='none';
-}
+}	
 function selectModal(type){
 	let led_category = led_category_tree[type];
 	let childs = Object.keys(led_category.childs);
@@ -31,8 +26,7 @@ function selectModal(type){
 	document.getElementById('cat-tittle').innerHTML=led_category.title;
 	document.getElementById('cal-product-category').value=type;
 	document.getElementById('select-product').innerHTML=childHtml;
-	document.getElementById('modal-cat').style.display='none';
-	document.getElementById('modal-product').style.display='block';
+	openModal('modal-product');
 }
 function checkProduct(itemSelected){
 	let selectedProduct = document.getElementById('select-product');
@@ -75,8 +69,9 @@ function getCheckedValue(nameRadio){
 }
 function drawProduct(product){
 	let item = led_category_tree[product.category].childs[product.type];
+	product.id = totalProducts++;
 	const htmlSting = `
-		<div class="product-item">  
+		<div id="led-product-${product.id}" class="product-item">  
 			<div class="product-img-container">
 				<img src="${item.img}" alt="${item.title}" class="product-img" />
 			</div>
@@ -85,8 +80,8 @@ function drawProduct(product){
 					${product.quantity} bombillo(s) ${item.title} de ${product.power} w
 				</strong>
 				<div class="product-button">
-					<a class="button-update">modificar</a>
-					<a class="button-delete">Eliminiar</a>
+					<a class="led-button button-update" onclick="ledUpdate(${product.id})"><div class="bg-CAMBIAR_OPCIONES"></div><span>modificar</span></a>
+					<a class="led-button button-delete" onclick="ledRemove(${product.id})"><div class="bg-AGREGAR_MAS"></div><span>Eliminiar</span></a>
 				</div>
 			</div>
 
@@ -95,6 +90,44 @@ function drawProduct(product){
 	`;
 	let divProduct = document.getElementById('cal-container');
 	divProduct.innerHTML+=htmlSting;
-
-	console.log(product);
+	productSelected.push(product);
+}
+function ledUpdate(itemId){
+	var updateModal ={
+		quantity : document.getElementById('update-product-quantity'),
+		power : document.getElementById('update-product-power'),
+		img : document.getElementById('update-cat-img'),
+		id : document.getElementById('update-product-id')
+	};
+	var item = productSelected.find(items=>items.id===itemId);
+	var catUpdate = led_category_tree[item.category].childs[item.type];
+	updateModal.quantity.value = item.quantity;
+	updateModal.img.src = catUpdate.img;
+	updateModal.id.value = item.id;
+	updateModal.power.innerHTML = "";
+	catUpdate.variation.forEach(element => {
+		let option = document.createElement('option');
+		option.value = element;
+		option.innerHTML = element;
+		option.selected = element === item.power;		
+		updateModal.power.appendChild(option);		
+	});
+	openModal('modal-update-product');
+}
+function ledRemove(itemId){
+	var item = productSelected.find(items=>items.id===itemId);
+	document.getElementById('led-product-'+item.id).remove();
+	productSelected.pop(item);
+}
+function openModal(modalId){
+	let modal = document.getElementById('led-modal');
+	modal.style.display='block';
+	var modals = document.getElementsByClassName('led-modal-content');
+	for(var i=0; i<modals.length;i++){
+		modals[i].style.display='none';
+	}
+	modals[modalId].style.display='block';
+}
+function updateProduct(productId){
+	
 }
