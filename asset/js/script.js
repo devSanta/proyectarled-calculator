@@ -40,8 +40,8 @@ function checkProduct(itemSelected){
 	for (var i = 0; i < childVariation.length; i++) {
 		variation = childVariation[i];
 		let led_variaton = document.createElement('option');
-		led_variaton.value=variation;
-		led_variaton.innerHTML=variation+" W";
+		led_variaton.value=variation.value;
+		led_variaton.innerHTML=variation.value+" W";
 		selectedPower.appendChild(led_variaton);
 	}
 	productSelected.checked=true;
@@ -77,7 +77,7 @@ function drawProduct(product){
 			</div>
 			<div class="product-content">
 				<strong class="product-name" id="led-product-${product.id}-title">
-					${product.quantity} bombillo(s) ${item.title} de ${product.power} 
+					${product.quantity} bombillo(s) ${item.title} de ${product.power} W
 				</strong>
 				<div class="product-button">
 					<a class="led-button button-update" onclick="ledUpdate(${product.id})"><div class="bg-CAMBIAR_OPCIONES"></div><span>modificar</span></a>
@@ -91,6 +91,9 @@ function drawProduct(product){
 	let divProduct = document.getElementById('cal-container');
 	divProduct.innerHTML+=htmlSting;
 	productSelected.push(product);
+	if(productSelected.length>0){
+		document.getElementById('led-button-calculate').style.display="";
+	}
 }
 function ledUpdate(itemId){
 	var updateModal ={
@@ -107,9 +110,9 @@ function ledUpdate(itemId){
 	updateModal.power.innerHTML = "";
 	catUpdate.variation.forEach(element => {
 		let option = document.createElement('option');
-		option.value = element;
-		option.innerHTML = element;
-		option.selected = element === item.power;		
+		option.value = element.value;
+		option.innerHTML = element.value;
+		option.selected = element.value === item.power;		
 		updateModal.power.appendChild(option);		
 	});
 	openModal('modal-update-product');
@@ -118,6 +121,10 @@ function ledRemove(itemId){
 	var item = productSelected.find(items=>items.id===itemId);
 	document.getElementById('led-product-'+item.id).remove();
 	productSelected.pop(item);
+	console.log(productSelected);
+	if(productSelected.length<=0){
+		document.getElementById('led-button-calculate').style.display="none";
+	}
 }
 function openModal(modalId){
 	var modal = document.getElementById('led-modal');

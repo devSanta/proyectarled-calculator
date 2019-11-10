@@ -1,4 +1,4 @@
-
+.test{display:block !important}
 .led-modal {
 	position: fixed;
 	background-color: #3f3f3f3f;
@@ -136,4 +136,37 @@
 }
 .hentry .entry-content a.led-button {
   text-decoration: none;
+}
+
+
+/* En línea #18 | http://localhost/wordpress/led-calculator-tet/ */
+
+.led-modal-content h2 {
+  font-weight: 800;
+  font-size: 22px;
+  text-align: center;
+}
+
+#modal-update-calculate {
+  width: 30%;
+}
+
+.cal-number {
+  background-color: yellow;
+  color: black;
+  font-weight: 1000;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+.number-container {
+  display: flex;
+  justify-content: center;
+}
+#led-cal-list {
+	height: 200px;
+	overflow-x: scroll;
 }

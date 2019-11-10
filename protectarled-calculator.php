@@ -40,17 +40,120 @@ function get_tree_categories(){
 				'plafon' => [
 					'title'	=> 'de plafón',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_plafon.png',
-					'variation' => [60,100,120]
+					'variation' => [
+						[
+							'value'=> 60,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>9
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=> 12
+								],
+							]
+						],
+						[
+							'value'=> 100,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=> 15
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>18
+								],
+							]
+						],
+						[
+							'value'=> 120,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>15
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>18
+								],
+							]
+						]
+					]
 				],
 				'aplique'=> [
 					'title'	=> 'de aplique',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_aplique.png',
-					'variation' => [60,100,120]
+					'variation' => [
+						[
+							'value'=> 60,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>9
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=> 12
+								],
+							]
+						],
+						[
+							'value'=> 100,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>15
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>18
+								],
+							]
+						],
+						[
+							'value'=> 120,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>15
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>18
+								],
+							]
+						]
+					]
 				],
 				'buey' 	=>  [
 					'title'	=> 'ojo de buey',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/ojo_de_buey.png',
-					'variation' => [35,50]
+					'variation' => [
+						[
+							'value'=> 35,
+							'similar'=>[
+								[
+									'name'=>"panel de incrustar",
+									'value'=>4
+								],
+								[
+									'name'=>"dricroico",
+									'value'=>5
+								],
+							]
+						],
+						[
+							'value'=> 50,
+							'similar'=>[
+								[
+									'name'=>"dricroico",
+									'value'=>5
+								],
+							]
+						]
+					]
 				],
 
 			],
@@ -62,22 +165,122 @@ function get_tree_categories(){
 				'plafon' => [
 					'title'	=> 'de plafón',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_plafon.png',
-					'variation' => [26,35]
+					'variation' => [
+						[
+							'value'=> 26,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>26
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>12
+								],
+							]
+						],
+						[
+							'value'=> 35,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>15
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>18
+								],
+							]
+						]
+					]
 				],
 				'aplique'=> [
 					'title'	=> 'de aplique',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_apliques.png',
-					'variation' => [60,100,120]
+					'variation' => [
+						[
+							'value'=> 26,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>9
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>12
+								],
+							]
+						],
+						[
+							'value'=> 35,
+							'similar'=>[
+								[
+									'name'=>"bombillo led",
+									'value'=>15
+								],
+								[
+									'name'=>"panel de sobreponer",
+									'value'=>18
+								],
+							]
+						]
+					]
 				],
 				'balas' 	=>  [
 					'title'	=> 'balas',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_bala.png',
-					'variation' => [26,35]
+					'variation' => [
+						[
+							'value'=> 26,
+							'similar'=>[
+								[
+									'name'=>"panel de incrustar",
+									'value'=>12
+								],
+							]
+						],
+						[
+							'value'=> 35,
+							'similar'=>[
+								[
+									'name'=>"panel de incrustar",
+									'value'=>18
+								],
+							]
+						]
+					]
 				],
 				'portalamparas'	 =>  [
 					'title'	=> 'portalamparas',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/portatubos.png',
-					'variation' => ['2x32','4x17']
+					'variation' => [
+						[
+							'value'=> "2x32",
+							'similar'=>[
+								[
+									'name'=>"tubos",
+									'value'=>"2x18"
+								],
+								[
+									'name'=>"paneles",
+									'value'=>36
+								],
+							]
+						],
+						[
+							'value'=> "4x17",
+							'similar'=>[
+								[
+									'name'=>"tubos",
+									'value'=>"4x9"
+								],
+								[
+									'name'=>"paneles",
+									'value'=>36
+								],
+							]
+						]
+					]
 				],
 
 			],
@@ -86,10 +289,74 @@ function get_tree_categories(){
 			'title' => 'reflectores',
 			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.png',
 			'childs'=> [
-				'plafon' => [
-					'title'	=> 'reflector',
+				'metalico' => [
+					'title'	=> 'reflector metalico',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.png',
-					'variation' => [60,100,120]
+					'variation' => [
+						[
+							'value'=> 60,
+							'similar'=>[
+								[
+									'name'=>"reflectores led",
+									'value'=>30
+								],
+							]
+						],
+						[
+							'value'=> 100,
+							'similar'=>[
+								[
+									'name'=>"reflectores led",
+									'value'=>50
+								],
+							]
+						],
+						[
+							'value'=> 150,
+							'similar'=>[
+								[
+									'name'=>"reflectores led",
+									'value'=>80
+								],
+							]
+						],
+						[
+							'value'=> 200,
+							'similar'=>[
+								[
+									'name'=>"reflectores led",
+									'value'=>100
+								],
+							]
+						],
+						[
+							'value'=> 240,
+							'similar'=>[
+								[
+									'name'=>"reflectores led",
+									'value'=>120
+								],
+							]
+						],
+						[
+							'value'=> 300,
+							'similar'=>[
+								[
+									'name'=>"reflectores led",
+									'value'=>150
+								],
+							]
+						],
+						[
+							'value'=> 400,
+							'similar'=>[
+								[
+									'name'=>"reflectores led",
+									'value'=>200
+								],
+							]
+						],
+					]
 				],
 			],
 		],
@@ -133,6 +400,7 @@ function led_calculator_shortcode($atts){
 
 			<div class="more-button">
 				<a class="led-button" onclick="addElement()"><div class="bg-AGREGAR_MAS"></div><span>Agregar</span></a>
+				<a id="led-button-calculate" class="led-button" onclick="calculate()" style="display:none"><div class="bg-AGREGAR_MAS"></div><span>Calcular</span></a>
 			</div>
 			
 		</div>
