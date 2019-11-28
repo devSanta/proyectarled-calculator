@@ -1,9 +1,9 @@
 <?php ?>
 
-<div id="modal-update-calculate" class="led-modal-content test" style="display:block;">
+<div id="modal-update-calculate" class="led-modal-content" style="display:none;">
     <h2>Tu consumo actual aproximado</h2>
-    <div id="before-cal-number" class="number-container">
-        <span class="cal-number">$0.0</span>
+    <div class="number-container">
+        <span id="before-cal-number" class="cal-number">$0.0</span>
     </div>
     <div class="led-cal-suggestion">
         <h2>Nuestra sugerencia</h2>
@@ -11,11 +11,11 @@
 
         </div>
     </div>
-    <div id="after-cal-number" class="number-container">
-        <span class="cal-number">$0.0</span>
+    <div class="number-container">
+        <span id="after-cal-number" class="cal-number">$0.0</span>
     </div>
     <div id="product-button">
-		<a onclick="setProduct()" class="led-product-button">Cotizar</a>
+		<a onclick="setQuote()" class="led-product-button">Cotizar</a>
 	</div>
 
 </div>

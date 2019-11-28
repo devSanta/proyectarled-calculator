@@ -379,6 +379,8 @@ function led_calculator_shortcode($atts){
 	const led_category_tree='.json_encode($led_category_tree).';
 	var productSelected = [];
 	var totalProducts = 0;
+	var powerCost = 454.60;
+	var similarProducts = [];
 	</script>';
 
 	wp_enqueue_script('led_calculator_script_main',LEDCAL_JS_PLUGIN_URL . 'script.js',array(),'1.0.0');

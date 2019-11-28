@@ -53,7 +53,8 @@ function setProduct(){
 	product.power = document.getElementsByName('power')[0].value;
 	product.type = getCheckedValue('product_selected');
 	product.category = document.getElementById('cal-product-category').value;
-
+	var variations = led_category_tree[product.category].childs[product.type].variation;
+	product.variation = variations.find(function(item){return item.value==product.power});
 
 	drawProduct(product);
 	closeModal();
@@ -121,7 +122,6 @@ function ledRemove(itemId){
 	var item = productSelected.find(items=>items.id===itemId);
 	document.getElementById('led-product-'+item.id).remove();
 	productSelected.pop(item);
-	console.log(productSelected);
 	if(productSelected.length<=0){
 		document.getElementById('led-button-calculate').style.display="none";
 	}
@@ -144,4 +144,44 @@ function updateProduct(){
 	product.power = updateValues.power.value;
 	productTitle.innerHTML = `${product.quantity} bombillo(s) ${product.type} de ${product.power} w`;
 	closeModal();
+}
+function calculate(){
+	var totalPower = productSelected.reduce((sum,{power,quantity})=>{return sum+(Number(power)*Number(quantity))},0);
+	var totalCost = totalPower*powerCost;
+	similarProducts = productSelected.map(function(item){
+		var similarItem = item.variation.similar[0];
+		var ledClass = led_category_tree[item.category].childs[item.type];
+		return {
+			'name':similarItem.name,
+			'power':similarItem.value,
+			'quantity':item.quantity,
+			'img': ledClass.img
+		};
+	});
+	var powerSimilar = similarProducts.reduce((sum,{power,quantity})=>{return sum+(Number(power)*Number(quantity))},0);
+	var similarCost = powerSimilar*powerCost;
+
+	document.getElementById('before-cal-number').innerHTML='$'+totalCost;
+	document.getElementById('after-cal-number').innerHTML='$'+similarCost;
+	var suggerenceString = similarProducts.reduce((itemString,item)=>{
+		return itemString+
+		`<div class="suggerence-row">
+			<div class="suggerence-img">
+				<img src="${item.img}" alt="${item.name}" class="product-img" />
+			</div>
+			<div class="suggerence-container">
+				<strong class="suggerence-text">${item.quantity} ${item.name}, de ${item.power} W</strong>
+				<div class="suggerence-button">
+					<a class="led-button button-update" onclick="ledUpdate()"><div class="bg-CAMBIAR_OPCIONES"></div><span>modificar</span></a>
+				</div>
+			</div>
+		</div>`;
+	},'');
+	document.getElementById('led-cal-list').innerHTML=suggerenceString;
+
+	openModal('modal-update-calculate');
+}
+function setQuote(){
+	openModal('modal-quote');
+	console.log('cotización');
 }

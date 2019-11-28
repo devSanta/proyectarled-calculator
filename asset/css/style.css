@@ -169,4 +169,45 @@
 #led-cal-list {
 	height: 200px;
 	overflow-x: scroll;
+  padding: 0 2rem;
+}
+.suggerence-row {
+  display: flex;
+}
+.suggerence-img {
+  flex-basis: 20%;
+}
+.suggerence-text {
+  font-weight: 1000;
+  color: #333333;
+}
+.suggerence-container {
+  padding-top: 1rem;
+}
+#modal-quote {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* En línea #20 | http://localhost/wordpress/led-calculator-tet/ */
+
+.quote-form span input:focus {
+  border: none;
+  outline: none;
+}
+.quote-form span {
+	width: 100%;
+	display: block;
+}
+.quote-form span input {
+	width: 70%;
+	border-radius: 25px;
+}
+.led-form input[type="submit"] {
+  margin-top: 20px;
+  border-radius: 25px;
+  background-color: #5CC15C;
+}
+.quote-form.quote-form-hidden {
+  display: none;
 }

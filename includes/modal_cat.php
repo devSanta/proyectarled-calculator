@@ -1,4 +1,4 @@
-<div id="modal-cat" class="led-modal-content">
+<div id="modal-cat" class="led-modal-content" style="display:none;">
 	<p class="led-modal-text">
 		¡Selecciona el tipo de bombillo que quieres agregar!
 	</p>
