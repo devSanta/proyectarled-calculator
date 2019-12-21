@@ -6,7 +6,7 @@
         <span id="before-cal-number" class="cal-number">$0.0</span>
     </div>
     <div class="led-cal-suggestion">
-        <h2>Nuestra sugerencia</h2>
+        <h2>Nuestra sugerencia en LED</h2>
         <div id="led-cal-list" class="led-product-list">
 
         </div>

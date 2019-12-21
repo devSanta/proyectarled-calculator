@@ -1,5 +1,5 @@
 
-<div id="led-modal" class="led-modal" style="display:block">
+<div id="led-modal" class="led-modal" >
 	
 	<a onclick="closeModal()" id="close-time">x</a>
 

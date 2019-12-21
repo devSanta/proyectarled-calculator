@@ -33,12 +33,12 @@ if ( ! defined( 'LEDCAL_IMG_PLUGIN_URL' ) ) {
 
 function get_tree_categories(){
 	$led_category_tree = [
-		'incandecentes' =>[
-			'title' => 'incandecentes',
+		'incandescentes' =>[
+			'title' => 'incandescentes',
 			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'incandescentes.png',
 			'childs'=> [
 				'plafon' => [
-					'title'	=> 'de plafón',
+					'title'	=> 'Bombillo(s) de plafón',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_plafon.png',
 					'variation' => [
 						[
@@ -83,7 +83,7 @@ function get_tree_categories(){
 					]
 				],
 				'aplique'=> [
-					'title'	=> 'de aplique',
+					'title'	=> 'bombillo(s) de aplique',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_aplique.png',
 					'variation' => [
 						[
@@ -128,7 +128,7 @@ function get_tree_categories(){
 					]
 				],
 				'buey' 	=>  [
-					'title'	=> 'ojo de buey',
+					'title'	=> 'bombillo(s) ojo de buey',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/ojo_de_buey.png',
 					'variation' => [
 						[
@@ -158,12 +158,12 @@ function get_tree_categories(){
 
 			],
 		],
-		'fluorecentes' =>[
-			'title' => 'fluorecentes',
+		'fluorescentes' =>[
+			'title' => 'fluorescentes',
 			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'fluorescentes.png',
 			'childs'=> [
 				'plafon' => [
-					'title'	=> 'de plafón',
+					'title'	=> 'bombillo(s) de plafón',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_plafon.png',
 					'variation' => [
 						[
@@ -195,7 +195,7 @@ function get_tree_categories(){
 					]
 				],
 				'aplique'=> [
-					'title'	=> 'de aplique',
+					'title'	=> 'bombillo(s) de aplique',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_apliques.png',
 					'variation' => [
 						[
@@ -227,7 +227,7 @@ function get_tree_categories(){
 					]
 				],
 				'balas' 	=>  [
-					'title'	=> 'balas',
+					'title'	=> 'bombillo(s) balas',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_bala.png',
 					'variation' => [
 						[
@@ -250,8 +250,8 @@ function get_tree_categories(){
 						]
 					]
 				],
-				'portalamparas'	 =>  [
-					'title'	=> 'portalamparas',
+				'portalámparas'	 =>  [
+					'title'	=> 'portalámparas',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/portatubos.png',
 					'variation' => [
 						[
@@ -289,8 +289,8 @@ function get_tree_categories(){
 			'title' => 'reflectores',
 			'img' 	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.png',
 			'childs'=> [
-				'metalico' => [
-					'title'	=> 'reflector metalico',
+				'metálico' => [
+					'title'	=> 'reflector metálico',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.png',
 					'variation' => [
 						[
@@ -392,7 +392,7 @@ function led_calculator_shortcode($atts){
 	<div id="Calculator">
 		
 		<h4>Revisemos que iluminación tienes actualmente</h4>
-		<p> Agregar tipos y cantidad de bombillos actuales</p>
+		<p class="calculator-intro"> Agregar tipos y cantidad de bombillos actuales</p>
 
 		<div id="cal-cart">
 			
@@ -402,7 +402,7 @@ function led_calculator_shortcode($atts){
 
 			<div class="more-button">
 				<a class="led-button" onclick="addElement()"><div class="bg-AGREGAR_MAS"></div><span>Agregar</span></a>
-				<a id="led-button-calculate" class="led-button" onclick="calculate()" style="display:none"><div class="bg-AGREGAR_MAS"></div><span>Calcular</span></a>
+				<a id="led-button-calculate" class="led-button" onclick="calculate()" style="display:none"><div class="bg-CALCULAR"></div><span>Calcular</span></a>
 			</div>
 			
 		</div>

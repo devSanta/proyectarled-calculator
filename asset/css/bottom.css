@@ -13,3 +13,8 @@
     background: url('../img/BOTONES/CAMBIAR-OPCIONES.png');
     background-size: contain;
 }
+.bg-ELIMINAR {
+  width: 25px; height: 25px;
+  background: url('../img/BOTONES/eliminar.png');
+  background-size: contain;
+}

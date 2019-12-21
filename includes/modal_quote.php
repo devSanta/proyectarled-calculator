@@ -1,5 +1,5 @@
 <?php ?>
-<div id="modal-quote" class="led-modal-content" style="display:block;">
+<div id="modal-quote" class="led-modal-content" style="display:none;">
     <h3 class="led-quote-title">Envía tu cotización</h3>
     <p class="led-modal-text">
         Dejános tus datos y proximamente nos estaremos comunicando contigo.

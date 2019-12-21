@@ -3,6 +3,7 @@ function addElement() {
 }
 function closeModal(){
 	let modal = document.getElementById('led-modal');
+	document.getElementsByTagName('html')[0].classList.remove('no-scroll');
 	modal.style.display='none';
 }	
 function selectModal(type){
@@ -15,7 +16,7 @@ function selectModal(type){
 		let item = led_category.childs[key];
 		childHtml+=`
 			<a onclick="checkProduct(${i})" class="led-modal-product-select button">
-				<p class="modal-img-cap">${item.title}</p>
+				<p class="modal-img-cap">${key}</p>
 				<img src="${item.img}" alt="${item.title}}" class="led-select-img">
 				<input type="radio" name="product_selected" value="${key}">
 			</a>
@@ -26,6 +27,8 @@ function selectModal(type){
 	document.getElementById('cat-tittle').innerHTML=led_category.title;
 	document.getElementById('cal-product-category').value=type;
 	document.getElementById('select-product').innerHTML=childHtml;
+	document.getElementById('product-power').innerHTML="";
+	document.getElementById('product-quantity').value=1;
 	openModal('modal-product');
 }
 function checkProduct(itemSelected){
@@ -78,11 +81,11 @@ function drawProduct(product){
 			</div>
 			<div class="product-content">
 				<strong class="product-name" id="led-product-${product.id}-title">
-					${product.quantity} bombillo(s) ${item.title} de ${product.power} W
+					${product.quantity} ${item.title} de ${product.power} W
 				</strong>
 				<div class="product-button">
 					<a class="led-button button-update" onclick="ledUpdate(${product.id})"><div class="bg-CAMBIAR_OPCIONES"></div><span>modificar</span></a>
-					<a class="led-button button-delete" onclick="ledRemove(${product.id})"><div class="bg-AGREGAR_MAS"></div><span>Eliminiar</span></a>
+					<a class="led-button button-delete" onclick="ledRemove(${product.id})"><div class="bg-ELIMINAR"></div><span>Eliminiar</span></a>
 				</div>
 			</div>
 
@@ -129,6 +132,7 @@ function ledRemove(itemId){
 function openModal(modalId){
 	var modal = document.getElementById('led-modal');
 	modal.style.display='block';
+	document.getElementsByTagName('html')[0].classList.add('no-scroll');
 	var modals = document.getElementsByClassName('led-modal-content');
 	for(var i=0; i<modals.length;i++){
 		modals[i].style.display='none';
@@ -166,13 +170,13 @@ function calculate(){
 	var suggerenceString = similarProducts.reduce((itemString,item)=>{
 		return itemString+
 		`<div class="suggerence-row">
-			<div class="suggerence-img">
+			<div class="suggerence-img" style="display:none;">
 				<img src="${item.img}" alt="${item.name}" class="product-img" />
 			</div>
 			<div class="suggerence-container">
 				<strong class="suggerence-text">${item.quantity} ${item.name}, de ${item.power} W</strong>
-				<div class="suggerence-button">
-					<a class="led-button button-update" onclick="ledUpdate()"><div class="bg-CAMBIAR_OPCIONES"></div><span>modificar</span></a>
+				<div class="suggerence-button" style="display:none">
+					<a class="led-button button-update" onclick="ledUpdate()"><span>modificar</span></a>
 				</div>
 			</div>
 		</div>`;
