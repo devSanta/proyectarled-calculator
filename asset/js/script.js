@@ -3,7 +3,7 @@ function addElement() {
 }
 function closeModal(){
 	let modal = document.getElementById('led-modal');
-	document.getElementsByTagName('html')[0].classList.remove('no-scroll');
+	document.getElementsByTagName('html')[0].style.overflowY="";
 	modal.style.display='none';
 }	
 function selectModal(type){
@@ -43,8 +43,8 @@ function checkProduct(itemSelected){
 	for (var i = 0; i < childVariation.length; i++) {
 		variation = childVariation[i];
 		let led_variaton = document.createElement('option');
-		led_variaton.value=variation.value;
-		led_variaton.innerHTML=variation.value+" W";
+		led_variaton.value=variation.value.power;
+		led_variaton.innerHTML=variation.value.label+" W";
 		selectedPower.appendChild(led_variaton);
 	}
 	productSelected.checked=true;
@@ -57,7 +57,7 @@ function setProduct(){
 	product.type = getCheckedValue('product_selected');
 	product.category = document.getElementById('cal-product-category').value;
 	var variations = led_category_tree[product.category].childs[product.type].variation;
-	product.variation = variations.find(function(item){return item.value==product.power});
+	product.variation = variations.find(function(item){return item.value.power==product.power});
 
 	drawProduct(product);
 	closeModal();
@@ -114,9 +114,9 @@ function ledUpdate(itemId){
 	updateModal.power.innerHTML = "";
 	catUpdate.variation.forEach(element => {
 		let option = document.createElement('option');
-		option.value = element.value;
-		option.innerHTML = element.value;
-		option.selected = element.value === item.power;		
+		option.value = element.value.power;
+		option.innerHTML = element.value.label;
+		option.selected = element.value.power === item.power;		
 		updateModal.power.appendChild(option);		
 	});
 	openModal('modal-update-product');
@@ -132,7 +132,7 @@ function ledRemove(itemId){
 function openModal(modalId){
 	var modal = document.getElementById('led-modal');
 	modal.style.display='block';
-	document.getElementsByTagName('html')[0].classList.add('no-scroll');
+	document.getElementsByTagName('html')[0].style.overflowY="hidden";
 	var modals = document.getElementsByClassName('led-modal-content');
 	for(var i=0; i<modals.length;i++){
 		modals[i].style.display='none';
@@ -159,14 +159,16 @@ function calculate(){
 			'name':similarItem.name,
 			'power':similarItem.value,
 			'quantity':item.quantity,
-			'img': ledClass.img
+			'img': ledClass.img,
+			'cat': item.category,
+			'type': item.type
 		};
 	});
-	var powerSimilar = similarProducts.reduce((sum,{power,quantity})=>{return sum+(Number(power)*Number(quantity))},0);
+	var powerSimilar = similarProducts.reduce((sum,{power,quantity})=>{return sum+(Number(power.power)*Number(quantity))},0);
 	var similarCost = powerSimilar*powerCost;
 
-	document.getElementById('before-cal-number').innerHTML='$'+totalCost;
-	document.getElementById('after-cal-number').innerHTML='$'+similarCost;
+	document.getElementById('before-cal-number').innerHTML='$'+Math.round(totalCost);
+	document.getElementById('after-cal-number').innerHTML='$'+Math.round(similarCost);
 	var suggerenceString = similarProducts.reduce((itemString,item)=>{
 		return itemString+
 		`<div class="suggerence-row">
@@ -174,7 +176,7 @@ function calculate(){
 				<img src="${item.img}" alt="${item.name}" class="product-img" />
 			</div>
 			<div class="suggerence-container">
-				<strong class="suggerence-text">${item.quantity} ${item.name}, de ${item.power} W</strong>
+				<strong class="suggerence-text">${item.quantity} ${item.name}, de ${item.power.label} W</strong>
 				<div class="suggerence-button" style="display:none">
 					<a class="led-button button-update" onclick="ledUpdate()"><span>modificar</span></a>
 				</div>
@@ -187,5 +189,6 @@ function calculate(){
 }
 function setQuote(){
 	openModal('modal-quote');
+
 	console.log('cotización');
 }

@@ -42,41 +42,68 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_plafon.png',
 					'variation' => [
 						[
-							'value'=> 60,
+							'value'=> [
+								'power'=>60,
+								'label'=>60
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>9
+									'value'=>[
+										'power'=>9,
+										'label'=>9
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=> 12
+									'value'=>[
+										'power'=>12,
+										'label'=>12
+									],
 								],
 							]
 						],
 						[
-							'value'=> 100,
+							'value'=> [
+								'power'=>100,
+								'label'=>100
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=> 15
+									'value'=> [
+										'power'=>15,
+										'label'=>15
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>18
+									'value'=>[
+										'power'=>18,
+										'label'=>18
+									],
 								],
 							]
 						],
 						[
-							'value'=> 120,
+							'value'=> [
+								'power'=>120,
+								'label'=>120
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>15
+									'value'=>[
+										'power'=>15,
+										'label'=>15
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>18
+									'value'=>[
+										'power'=>18,
+										'label'=>18
+									],
 								],
 							]
 						]
@@ -87,41 +114,68 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_aplique.png',
 					'variation' => [
 						[
-							'value'=> 60,
+							'value'=> [
+								'power'=>60,
+								'label'=>60
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>9
+									'value'=>[
+										'power'=>9,
+										'label'=>9
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=> 12
+									'value'=> [
+										'power'=>12,
+										'label'=>12
+									],
 								],
 							]
 						],
 						[
-							'value'=> 100,
+							'value'=> [
+								'power'=>100,
+								'label'=>100
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>15
+									'value'=>[
+										'power'=>15,
+										'label'=>15
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>18
+									'value'=>[
+										'power'=>18,
+										'label'=>18
+									],
 								],
 							]
 						],
 						[
-							'value'=> 120,
+							'value'=> [
+								'power'=>120,
+								'label'=>120
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>15
+									'value'=>[
+										'power'=>15,
+										'label'=>15
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>18
+									'value'=>[
+										'power'=>18,
+										'label'=>18
+									],
 								],
 							]
 						]
@@ -132,24 +186,39 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/ojo_de_buey.png',
 					'variation' => [
 						[
-							'value'=> 35,
+							'value'=> [
+								'power'=>35,
+								'label'=>35
+							],
 							'similar'=>[
 								[
 									'name'=>"panel de incrustar",
-									'value'=>4
+									'value'=>[
+										'power'=>4,
+										'label'=>4
+									],
 								],
 								[
 									'name'=>"dricroico",
-									'value'=>5
+									'value'=>[
+										'power'=>5,
+										'label'=>5
+									],
 								],
 							]
 						],
 						[
-							'value'=> 50,
+							'value'=> [
+								'power'=>50,
+								'label'=>50
+							],
 							'similar'=>[
 								[
 									'name'=>"dricroico",
-									'value'=>5
+									'value'=>[
+										'power'=>5,
+										'label'=>5
+									],
 								],
 							]
 						]
@@ -167,28 +236,46 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_plafon.png',
 					'variation' => [
 						[
-							'value'=> 26,
+							'value'=> [
+								'power'=>26,
+								'label'=>26
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>26
+									'value'=>[
+										'power'=>26,
+										'label'=>26
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>12
+									'value'=>[
+										'power'=>12,
+										'label'=>12
+									],
 								],
 							]
 						],
 						[
-							'value'=> 35,
+							'value'=> [
+								'power'=>35,
+								'label'=>35
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>15
+									'value'=>[
+										'power'=>15,
+										'label'=>15
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>18
+									'value'=>[
+										'power'=>18,
+										'label'=>18
+									],
 								],
 							]
 						]
@@ -199,28 +286,46 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_apliques.png',
 					'variation' => [
 						[
-							'value'=> 26,
+							'value'=> [
+								'power'=>26,
+								'label'=>26
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>9
+									'value'=>[
+										'power'=>9,
+										'label'=>9
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>12
+									'value'=>[
+										'power'=>12,
+										'label'=>12
+									],
 								],
 							]
 						],
 						[
-							'value'=> 35,
+							'value'=> [
+								'power'=>35,
+								'label'=>35
+							],
 							'similar'=>[
 								[
 									'name'=>"bombillo led",
-									'value'=>15
+									'value'=>[
+										'power'=>15,
+										'label'=>15
+									],
 								],
 								[
 									'name'=>"panel de sobreponer",
-									'value'=>18
+									'value'=>[
+										'power'=>18,
+										'label'=>18
+									],
 								],
 							]
 						]
@@ -231,20 +336,32 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_bala.png',
 					'variation' => [
 						[
-							'value'=> 26,
+							'value'=> [
+								'power'=>18,
+								'label'=>18
+							],
 							'similar'=>[
 								[
 									'name'=>"panel de incrustar",
-									'value'=>12
+									'value'=>[
+										'power'=>12,
+										'label'=>12
+									],
 								],
 							]
 						],
 						[
-							'value'=> 35,
+							'value'=> [
+								'power'=>35,
+								'label'=>35
+							],
 							'similar'=>[
 								[
 									'name'=>"panel de incrustar",
-									'value'=>18
+									'value'=>[
+										'power'=>18,
+										'label'=>18
+									],
 								],
 							]
 						]
@@ -255,28 +372,46 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/portatubos.png',
 					'variation' => [
 						[
-							'value'=> "2x32",
+							'value'=> [
+								'power'=>64,
+								'label'=>"2x32"
+							],
 							'similar'=>[
 								[
 									'name'=>"tubos",
-									'value'=>"2x18"
+									'value'=>[
+										'power'=>36,
+										'label'=>"2x18"
+									],
 								],
 								[
 									'name'=>"paneles",
-									'value'=>36
+									'value'=>[
+										'power'=>36,
+										'label'=>36
+									],
 								],
 							]
 						],
 						[
-							'value'=> "4x17",
+							'value'=> [
+								'power'=>68,
+								'label'=>"4x17"
+							],
 							'similar'=>[
 								[
 									'name'=>"tubos",
-									'value'=>"4x9"
+									'value'=>[
+										'power'=>36,
+										'label'=>"4x9"
+									],
 								],
 								[
 									'name'=>"paneles",
-									'value'=>36
+									'value'=>[
+										'power'=>36,
+										'label'=>36
+									],
 								],
 							]
 						]
@@ -294,65 +429,107 @@ function get_tree_categories(){
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'reflectores.png',
 					'variation' => [
 						[
-							'value'=> 60,
+							'value'=> [
+								'power'=>60,
+								'label'=>60
+							],
 							'similar'=>[
 								[
 									'name'=>"reflectores led",
-									'value'=>30
+									'value'=>[
+										'power'=>30,
+										'label'=>30
+									],
 								],
 							]
 						],
 						[
-							'value'=> 100,
+							'value'=> [
+								'power'=>100,
+								'label'=>100
+							],
 							'similar'=>[
 								[
 									'name'=>"reflectores led",
-									'value'=>50
+									'value'=>[
+										'power'=>50,
+										'label'=>50
+									],
 								],
 							]
 						],
 						[
-							'value'=> 150,
+							'value'=> [
+								'power'=>150,
+								'label'=>150
+							],
 							'similar'=>[
 								[
 									'name'=>"reflectores led",
-									'value'=>80
+									'value'=>[
+										'power'=>80,
+										'label'=>80
+									],
 								],
 							]
 						],
 						[
-							'value'=> 200,
+							'value'=> [
+								'power'=>200,
+								'label'=>200
+							],
 							'similar'=>[
 								[
 									'name'=>"reflectores led",
-									'value'=>100
+									'value'=>[
+										'power'=>100,
+										'label'=>100
+									],
 								],
 							]
 						],
 						[
-							'value'=> 240,
+							'value'=> [
+								'power'=>240,
+								'label'=>240
+							],
 							'similar'=>[
 								[
 									'name'=>"reflectores led",
-									'value'=>120
+									'value'=>[
+										'power'=>120,
+										'label'=>120
+									],
 								],
 							]
 						],
 						[
-							'value'=> 300,
+							'value'=> [
+								'power'=>300,
+								'label'=>300
+							],
 							'similar'=>[
 								[
 									'name'=>"reflectores led",
-									'value'=>150
+									'value'=>[
+										'power'=>150,
+										'label'=>150
+									],
 								],
 							]
 						],
 						[
-							'value'=> 400,
+							'value'=> [
+								'power'=>400,
+								'label'=>400
+							],
 							'similar'=>[
 								[
 									'name'=>"reflectores led",
-									'value'=>200
+									'value'=>[
+										'power'=>200,
+										'label'=>200
+									],
 								],
 							]
 						],
