@@ -190,5 +190,15 @@ function calculate(){
 function setQuote(){
 	openModal('modal-quote');
 
-	console.log('cotización');
+	var recentlyString = productSelected.reduce((itemString,item)=>{
+		return itemString+`${item.quantity} ${item.type} ${item.category}, de ${item.power} W\n`;
+	},'');
+
+	var suggerenceString = similarProducts.reduce((itemString,item)=>{
+		return itemString+`${item.quantity} ${item.name}, de ${item.power.label} W\n`;
+	},'');
+	console.log('actuales',recentlyString);
+	console.log('sugerencia',suggerenceString);
+	let quoteMessage = document.getElementsByName('your-message')[0];
+	quoteMessage.value="Actuales:\n"+recentlyString+"\nSeugerencias:\n"+suggerenceString;
 }
