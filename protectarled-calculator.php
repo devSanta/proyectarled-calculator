@@ -110,7 +110,7 @@ function get_tree_categories(){
 					]
 				],
 				'aplique'=> [
-					'title'	=> 'bombillo(s) de aplique',
+					'title'	=> 'aplique(s)',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'incandescente/de_aplique.png',
 					'variation' => [
 						[
@@ -282,7 +282,7 @@ function get_tree_categories(){
 					]
 				],
 				'aplique'=> [
-					'title'	=> 'bombillo(s) de aplique',
+					'title'	=> 'aplique(s)',
 					'img'	=> LEDCAL_IMG_PLUGIN_URL.'fluorecente/de_apliques.png',
 					'variation' => [
 						[
@@ -460,21 +460,6 @@ function get_tree_categories(){
 						],
 						[
 							'value'=> [
-								'power'=>150,
-								'label'=>150
-							],
-							'similar'=>[
-								[
-									'name'=>"reflectores led",
-									'value'=>[
-										'power'=>80,
-										'label'=>80
-									],
-								],
-							]
-						],
-						[
-							'value'=> [
 								'power'=>200,
 								'label'=>200
 							],
@@ -484,21 +469,6 @@ function get_tree_categories(){
 									'value'=>[
 										'power'=>100,
 										'label'=>100
-									],
-								],
-							]
-						],
-						[
-							'value'=> [
-								'power'=>240,
-								'label'=>240
-							],
-							'similar'=>[
-								[
-									'name'=>"reflectores led",
-									'value'=>[
-										'power'=>120,
-										'label'=>120
 									],
 								],
 							]
